@@ -22,15 +22,15 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struck commands_s - opcode and its function
+ * struck instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
  */
-typedef struct commands_s
+typedef struct instruction_s
 {
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
-} commands_t;
+} instruction_t;
 
 /**
  * struct arg_s - hold variables
@@ -61,7 +61,7 @@ typedef struct arg_s
 	int stack;
 } arg_t;
 
-extern arg_t *arguments;
+extern arg_t *commands;
 
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
