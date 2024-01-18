@@ -9,11 +9,13 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
+	if (commands->head == NULL)
+		return;
+
 	(void) line_number;
 	(void) stack;
 
-	if (commands->head == NULL)
-		return;
+
 	temp = commands->head;
 	while (temp != NULL)
 	{
