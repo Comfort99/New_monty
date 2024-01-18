@@ -7,17 +7,22 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-        stack_t *tmp = commands->head;
+	stack_t *ptr;
+
 	if (commands->n_tokens <= 1 || !(is_number(commands->tokens[1])))
 	{
 		free_commands();
-		dprintf(2, "L%d: usage: push integer\n", line_number);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
 	*stack = malloc(sizeof(stack_t));
 	if (*stack == NULL)
-		malloc_failed();
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_commands();
+		exit(EXIT_FAILURE);
+	}
 	(*stack)->next = (*stack)->prev = NULL;
 	(*stack)->n = (int) atoi(commands->tokens[1]);
 	if (commands->head == NULL)
@@ -32,10 +37,12 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
-			while (tmp->next)
-				tmp = tmp->next;
-			tmp->next = *stack;
-			(*stack)->prev = tmp;
+			ptr = commands->head;
+
+			while (ptr->next)
+				ptr = ptr->next;
+			ptr->next = *stack;
+			(*stack)->prev = ptr;
 		}
 	}
 	commands->stack_length += 1;

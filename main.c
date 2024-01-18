@@ -10,7 +10,7 @@ arg_t *commands = NULL;
  */
 int main(int argc, char **argv)
 {
-	(void) argv;
+	size_t m = 0;
 
 	if (argc != 2)
 	{
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 	argument_line();
 	get_streamlet(argv[1]);
 	
-	while(getline(&commands->line, &n, commands->streamlet) != -1)
+	while(getline(&commands->line, &m, commands->streamlet) != -1)
 	{
 		commands->line_number += 1;
 		tokenize_line();

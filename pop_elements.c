@@ -7,17 +7,20 @@
  */
 void pop(stack_t **stack, unsigned int line_number)
 {
+	stack_t *tmp;
+
 	(void) stack;
 	if (commands->head == NULL)
 	{
-		dprintf(2, "L%d: can't pop an empty stack\n", line_number);
-		/*free_all_args();*/
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
                 close_streamlet();
                 free_tokens();
                 free_commands();
 		exit(EXIT_FAILURE);
 	}
+	tmp = commands->head;
+	commands->head = tmp->next;
+	free(tmp);
 
-	delete_stack_node();
 	commands->stack_length -= 1;
 }

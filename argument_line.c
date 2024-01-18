@@ -14,7 +14,7 @@ void argument_line(void)
 	commands->instruction = malloc(sizeof(instruction_t));
 	if (commands->instruction == NULL)
 	{
-		fprint(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_commands();
 		exit(EXIT_FAILURE);
 	}

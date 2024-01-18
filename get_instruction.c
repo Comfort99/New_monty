@@ -6,10 +6,9 @@ void invalid_instruction(void)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 			commands->line_number, commands->tokens[0]);
-	/*free_all_args();*/
         close_streamlet();
         free_tokens();
-        free_arguments();
+        free_commands();
 
 	exit(EXIT_FAILURE);
 }
@@ -24,12 +23,7 @@ void get_instruction(void)
 		{"push", &push}, {"pop", &pop},
 		{"pint", &pint}, {"swap", &swap},
 		{"nop", &nop}, {"add", &add},
-		{"pall", &pall}, {"sub", &sub},
-		{"div", &_div}, {"mul", &mul},
-		{"rotl", &rotl}, {"rotr", &rotr},
-		{"stack", &stack}, {"queue", &queue},
-		{"pstr", &pstr}, {"pchar", &pchar},
-		{"mod", &mod},
+		{"pall", &pall},
 		{NULL, NULL}
 	};
 

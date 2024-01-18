@@ -72,6 +72,7 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 
 ssize_t getline(char **lineptr, size_t *n, FILE *streamlet);
+FILE *fdopen(int fd, const char *mode);
 
 void argument_line(void);
 void free_commands(void);
@@ -84,5 +85,7 @@ void free_tokens(void);
 void get_streamlet(char *fileName);
 void tokenize_line(void);
 void delete_stack_node(void);
-void malloc_failed(void);
+void free_stack(stack_t *head);
+int is_number(char *str);
+
 #endif

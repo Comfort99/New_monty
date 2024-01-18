@@ -12,9 +12,8 @@ void add(stack_t **stack, unsigned int line_number)
 	(void) stack;
 	if (commands->stack_length < 2)
 	{
-		dprintf(2, "L%d: can't add, stack too short\n", line_number);
-		/*free_all_args();*/
-                close_stream();
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+                close_streamlet();
 	        free_tokens();
 	        free_commands();
 		exit(EXIT_FAILURE);
