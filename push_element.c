@@ -1,18 +1,15 @@
 #include "monty.h"
-
 /**
- * push - Pushes an integer onto the stack.
+ * push - Pushes an integer into the stack.
  * @stack: Pointer to the stack.
  * @line_number: Line number where the push function is called.
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *ptr;
-
 	if (commands->n_tokens <= 1 || !(is_number(commands->tokens[1])))
 	{
-		free_commands();
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		free_commands();
 		exit(EXIT_FAILURE);
 	}
 
@@ -37,7 +34,7 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
-			ptr = commands->head;
+			stack_t *ptr = commands->head;
 
 			while (ptr->next)
 				ptr = ptr->next;

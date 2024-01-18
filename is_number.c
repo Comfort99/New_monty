@@ -6,14 +6,18 @@
  */
 int is_number(char *str)
 {
-	int i = 0;
+	int j = 0;
 
-	if (str[i] == '-')
-		i++;
-	for (; str[i]; i++)
+	while (str[j])
 	{
-		if (str[i] < '0' || str[i] > '9')
+		if (j == 0 && str[j] == '-' && str[j + 1])
+		{
+			j++;
+			continue;
+		}
+		if (str[j] < '0' || str[j] > '9')
 			return (0);
+		j++;
 	}
 	return (1);
 }

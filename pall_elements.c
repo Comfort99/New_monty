@@ -11,6 +11,7 @@ void pall(stack_t **stack, unsigned int line_number)
 
 	(void) line_number;
 	(void) stack;
+
 	if (commands->head == NULL)
 		return;
 	temp = commands->head;

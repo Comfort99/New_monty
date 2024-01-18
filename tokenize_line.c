@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * tokenize_line - Tokenizes the line read from file.
+ * tokenize_line - Tokenizes the line read from file
  */
 void tokenize_line(void)
 {
@@ -9,7 +9,7 @@ void tokenize_line(void)
 
 	strdup = malloc(sizeof(char) * (strlen(commands->line) + 1));
 	strcpy(strdup, commands->line);
-
+	
 	commands->n_tokens = 0;
 	token = strtok(strdup, delims);
 
