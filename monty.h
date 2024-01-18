@@ -83,5 +83,6 @@ void close_streamlet(void);
 void free_tokens(void);
 void get_streamlet(char *fileName);
 void tokenize_line(void);
-
+void delete_stack_node(void);
+void malloc_failed(void);
 #endif

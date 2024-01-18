@@ -14,19 +14,19 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file")
+		fprintf(stderr, "USAGE: monty file\n");
 			return (EXIT_FAILURE);
 	}
 	argument_line();
-	get_streamleti(arg[1]);
+	get_streamlet(argv[1]);
 	
 	while(getline(&commands->line, &n, commands->streamlet) != -1)
 	{
 		commands->line_number += 1;
-		tokenize();
+		tokenize_line();
 		get_instruction();
 		run_instruction();
-		free_token();
+		free_tokens();
 	}
 	close_streamlet();
 	free_commands();
