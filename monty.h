@@ -16,20 +16,23 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
- * struck instruction_s - opcode and its function
+ * struct instruction_s - opcode and its function
  * @opcode: the opcode
  * @f: function to handle the opcode
+ *
+ * Descriptiont: opcode is function for
+ * stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -39,7 +42,7 @@ typedef struct instruction_s
  * @line_number: for tracking current line number
  * @tokens: used to store tokens from line
  * @instruction: a valid instruction from a line
- * @n_tokens; number of tokens created from line
+ * @n_tokens: number of tokens created from line
  * @head: head/top of the stack (doubly linked lists of struct stack_s)
  * @stack_length: tracks the number of nodes in the stack
  * @stack: used to determine whether to use stack/queue data structure
@@ -50,8 +53,8 @@ typedef struct instruction_s
  */
 typedef struct arg_s
 {
-        FILE *streamlet;
-        char *line;
+	FILE *streamlet;
+	char *line;
 	unsigned int line_number;
 	char **tokens;
 	int n_tokens;
