@@ -1,9 +1,9 @@
 #include "monty.h"
 /**
- * get_path - gets the path of the file being specified.
- * @fileName: Name of the file to open and set as the path
+ * get_streamlet - gets the streamlet of the file being specified.
+ * @fileName: Name of the file to open and set as the streamlet
  */
-void get_path(char *fileName)
+void get_streamlet(char *fileName)
 {
 	int fd;
 
@@ -14,8 +14,8 @@ void get_path(char *fileName)
 		free_commands();
 		exit(EXIT_FAILURE);
 	}
-	commands->path = fdopen(fd, "r");
-	if (commands->path == NULL)
+	commands->streamlet = fdopen(fd, "r");
+	if (commands->streamlet == NULL)
 	{
 		close(fd);
 		fprintf(stderr, "Error: Can't open file %s\n", fileName);

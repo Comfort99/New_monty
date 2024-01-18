@@ -34,11 +34,11 @@ typedef struct instruction_s
 
 /**
  * struct arg_s - hold variables
- * @Path: File that connects to the path from file
- * @line: string which will be the line of text read from stream
+ * @streamlet: File that connects to the streamlet from file
+ * @line: string which will be the line of text read from streamlet
  * @line_number: for tracking current line number
  * @tokens: used to store tokens from line
- * @commands: a valid commands from a line
+ * @instruction: a valid instruction from a line
  * @n_tokens; number of tokens created from line
  * @head: head/top of the stack (doubly linked lists of struct stack_s)
  * @stack_length: tracks the number of nodes in the stack
@@ -50,7 +50,7 @@ typedef struct instruction_s
  */
 typedef struct arg_s
 {
-        FILE *Path;
+        FILE *streamlet;
         char *line;
 	unsigned int line_number;
 	char **tokens;
@@ -70,5 +70,16 @@ void pall(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+
+void argument_line(void);
+void free_commands(void);
+void free_head(void);
+void invalid_instruction(void);
+void get_instruction(void);
+void run_instruction(void);
+void close_streamlet(void);
+void free_tokens(void);
+void get_streamlet(char *fileName);
+void tokenize_line(void);
 
 #endif

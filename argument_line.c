@@ -18,7 +18,7 @@ void argument_line(void)
 		free_commands();
 		exit(EXIT_FAILURE);
 	}
-	commands->path = NULL;
+	commands->streamlet = NULL;
 	commands->head = NULL;
 	commands->line = NULL;
 	commands->n_tokens = 0;

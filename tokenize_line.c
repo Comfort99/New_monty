@@ -30,7 +30,7 @@ void tokenize_line(void)
 			free_commands();
 			exit(EXIT_FAILURE);
 		}
-		strcpy(arguments->tokens[i], token);
+		strcpy(commands->tokens[i], token);
 		token = strtok(NULL, delims);
 		i++;
 	}

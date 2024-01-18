@@ -29,9 +29,9 @@ void get_instruction(void)
 		{NULL, NULL}
 	};
 
-	if (arguments->n_tokens == 0)
+	if (commands->n_tokens == 0)
 		return;
-	if (arguments->tokens[0][0] == '#')
+	if (commands->tokens[0][0] == '#')
 	{
 		commands->instruction->opcode = "nop";
 		commands->instruction->f = nop;
@@ -39,7 +39,7 @@ void get_instruction(void)
 	}
 	for (; instructions[i].opcode != NULL; i++)
 	{
-		if (strcmp(instructions[i].opcode, arguments->tokens[0])
+		if (strcmp(instructions[i].opcode, commands->tokens[0])
 				== 0)
 		{
 			commands->instruction->opcode = instructions[i].opcode;

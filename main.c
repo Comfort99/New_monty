@@ -1,6 +1,6 @@
 #include "monty.h"
 
-arg_t *arguments = NULL;
+arg_t *commands = NULL;
 
 /**
  * mian - Entry point
@@ -14,13 +14,13 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		fprint(stderr, "USAGE: monty file")
+		fprintf(stderr, "USAGE: monty file")
 			return (EXIT_FAILURE);
 	}
 	argument_line();
-	get_path(arg[1]);
+	get_streamleti(arg[1]);
 	
-	while(getline(&commands->line, &n, commands->path) != -1)
+	while(getline(&commands->line, &n, commands->streamlet) != -1)
 	{
 		commands->line_number += 1;
 		tokenize();
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		run_instruction();
 		free_token();
 	}
-	close_path();
+	close_streamlet();
 	free_commands();
 	return (0);
 }

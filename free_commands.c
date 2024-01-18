@@ -11,7 +11,7 @@ void free_head(void)
 	commands->head = NULL;
 }
 /**
-* free_arguments - free memory allocated to commands pointer
+* free_commands - free memory allocated to commands pointer
 */
 void free_commands(void)
 {
