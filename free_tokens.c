@@ -10,8 +10,8 @@ void free_tokens(void)
 		return;
 	while (commands->tokens[j])
 	{
-		free(arguments->tokens[j]);
-		i++;
+		free(commands->tokens[j]);
+		j++;
 	}
 	free(commands->tokens);
 	commands->tokens = NULL;

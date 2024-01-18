@@ -1,4 +1,4 @@
-#include "monty.c"
+#include "monty.h"
 /**
  * invalid_instruction - Handles an unknown instruction.
  */
@@ -6,7 +6,11 @@ void invalid_instruction(void)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n",
 			commands->line_number, commands->tokens[0]);
-	free_all_args();
+	/*free_all_args();*/
+        close_streamlet();
+        free_tokens();
+        free_arguments();
+
 	exit(EXIT_FAILURE);
 }
 /**
