@@ -65,7 +65,7 @@ typedef struct arg_s
 } arg_t;
 
 extern arg_t *commands;
-
+int is_comment(void);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
