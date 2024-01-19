@@ -23,7 +23,8 @@ void get_instruction(void)
 		{"push", &push}, {"pop", &pop},
 		{"pint", &pint}, {"swap", &swap},
 		{"nop", &nop}, {"add", &add},
-		{"pall", &pall},
+		{"pall", &pall}, {"sub", &sub},
+                {"div", &_div}, {"mul", &mul},
 		{NULL, NULL}
 	};
 
