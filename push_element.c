@@ -6,6 +6,8 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
+	stack_t *ptr = commands->head;
+
 	if (commands->n_tokens <= 1 || !(is_number(commands->tokens[1])))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
@@ -34,7 +36,6 @@ void push(stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
-			stack_t *ptr = commands->head;
 
 			while (ptr->next)
 				ptr = ptr->next;
